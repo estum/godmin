@@ -32,18 +32,18 @@ end
 task default: :test
 
 namespace :sandbox do
-  desc "Push the sandbox app to GitHub which deploys it to Heroku"
+  desc "Generate the Sandbox app then push it to GitHub which deploys it to Heroku"
   task :deploy do
     message = "Generated from: https://github.com/varvet/godmin/commit/#{`git rev-parse HEAD`.strip}"
     template_path = File.expand_path("../template.rb", __FILE__)
     Bundler.with_clean_env do
       Dir.mktmpdir do |dir|
         Dir.chdir(dir)
-        system("git clone git@github.com:varvet/godmin-sandbox.git")
+        system("git clone https://github.com/varvet/godmin-sandbox.git")
         if $CHILD_STATUS.success?
           Dir.chdir("godmin-sandbox")
           system("rm -rf *")
-          system("rails new . -d postgresql -m #{template_path} --without-engine")
+          system("rails new . -d postgresql -m #{template_path} --without-engine --skip-spring")
           if $CHILD_STATUS.success?
             system("git add --all")
             system("git commit -m '#{message}'")
@@ -51,14 +51,6 @@ namespace :sandbox do
           end
         end
       end
-    end
-  end
-
-  desc "Empty and reseed the database on Heroku"
-  task :reseed do
-    app = "godmin-sandbox"
-    Bundler.with_clean_env do
-      system("heroku run rake sandbox:reseed --app #{app}")
     end
   end
 end

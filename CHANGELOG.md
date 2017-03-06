@@ -1,9 +1,38 @@
 # Changelog
 
-### Unreleased 
+### 1.5.0 - 2017-02-17
+Features
+- Support for nested resources (https://github.com/varvet/godmin/pull/189)
+
+### 1.4.0 - 2017-02-15
+Features
+- Support group queries in scopes and filters (https://github.com/varvet/godmin/pull/208)
+- Change color of remove buttons, so they're not grabbing all the attention (https://github.com/varvet/godmin/pull/212)
+
+Bug fixes
+- Fix permitted params in sessions controller to work with models other than `AdminUser` (https://github.com/varvet/godmin/pull/210)
+
+Other
+- Remove authentication alert (https://github.com/varvet/godmin/pull/207)
+- Add table caption for tests (https://github.com/varvet/godmin/pull/187)
+
+### 1.3.1 - 2016-09-27
+Bug fixes
+- Fix FileSystemResolver issue (https://github.com/varvet/godmin/pull/202)
+
+Other
+- Update template for Rails 5 (https://github.com/varvet/godmin/commit/95e0a7917dd9767d77c3bfc876ebbf0a6036f347)
+
+### 1.3.0 - 2016-07-11
 Features
 - Increased batch action checkbox click area (https://github.com/varvet/godmin/pull/183)
 - Adds titles to action links (https://github.com/varvet/godmin/pull/185)
+- Rails 5 support (https://github.com/varvet/godmin/pull/199)
+
+Bug fixes
+- Use translated title on login page (https://github.com/varvet/godmin/pull/195)
+- Hide batch action toggle when no batch action available (https://github.com/varvet/godmin/pull/197)
+- Remove hidden field for multiselect filters (https://github.com/varvet/godmin/pull/169)
 
 Other
 - Fixes a deprecation warning on Rails 4.2.5.1 (https://github.com/varvet/godmin/pull/188)
@@ -15,7 +44,7 @@ Features
 - Adds passing of options to association form helper (https://github.com/varvet/godmin/pull/172)
 - Adds passing of html options to association form helper (https://github.com/varvet/godmin/pull/176)
 
-Bug fixes:
+Bug fixes
 - Fixes an issue with the template resolver and Rails 4.2.5.1 (https://github.com/varvet/godmin/pull/175)
 
 ### 1.1.0 - 2015-12-08
